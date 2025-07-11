@@ -1,4 +1,6 @@
 interface ITodo {
+    date: string;
+    time: string;
     task: string,
     status: string,
 }
