@@ -7,14 +7,6 @@ import {
   Collapse,
   Heading,
   Input,
-  Stack,
-  StackDivider,
-  Table,
-  TableContainer,
-  Tbody,
-  Th,
-  Thead,
-  Tr,
 } from "@chakra-ui/react";
 import { TodoItem } from "../components/TodoItem";
 import { SetStateAction, useEffect, useState } from "react";
@@ -33,7 +25,6 @@ export const TodoListPage = () => {
   const [timeInput, setTimeInput] = useState<string>("");
   const [datePart, setDatePart] = useState("");
   const [timePart, setTimePart] = useState("");
-  //const [idInput, setIdInput] = useState<number | null>(null);
   const [taskInput, setTaskInput] = useState<string>("");
 
   const [filterInput, setFilterInput] = useState<string>("");
@@ -102,13 +93,6 @@ export const TodoListPage = () => {
       </Button>
       <Collapse startingHeight={0} animateOpacity in={show}>
         <Box>
-          {/* <Input
-            placeholder="ID"
-            value={idInput != null ? idInput : ""}
-            onChange={(event) => {
-              setIdInput(Number(event.target.value));
-            }}
-          /> */}
           <div className="w-100 flex-col justify-center">
             <Input
               placeholder="新增事項"
@@ -177,43 +161,6 @@ export const TodoListPage = () => {
           </CardBody>
         </Card>
       </div>
-
-      {/* <div className="flex flex-col items-center">
-        <TableContainer>
-          <Table variant="simple">
-            <Thead>
-              <Tr>
-                <Th></Th>
-                <Th>工作</Th>
-                <Th>完成狀態</Th>
-              </Tr>
-            </Thead>
-            <Tbody>
-              {todoList
-                .filter((todo) => {
-                  if (filterInput) {
-                    return JSON.stringify(todo).includes(filterInput);
-                  } else {
-                    return true;
-                  }
-                })
-                .map((item) => {
-                  return (
-                    <TodoItem
-                      key={item.task}
-                      todo={item}
-                      onDelete={(item) => {
-                        setTodoList(
-                          todoList.filter((todo) => todo.task !== item.task)
-                        );
-                      }}
-                    ></TodoItem>
-                  );
-                })}
-            </Tbody>
-          </Table>
-        </TableContainer>
-      </div> */}
     </>
   );
 };
